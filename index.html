@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nandita</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('Ibu Dan Bayi Segar Yang Indah Sederhana Latar belakang Gambar Wallpaper Untuk Download Gratis - Pngtree.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .page.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Elemen dekorasi (balon dan konfeti) */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border-radius: 50%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: #fff;
+            transform: translateX(-50%);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff1493;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Halaman 1 (Kado) */
+        .gift-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .gift-box {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 1s ease-in-out;
+        }
+
+        .gift-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 150px;
+            background: #fff;
+        }
+
+        .gift-box::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 20px;
+            background: #fff;
+        }
+
+        .lid {
+            position: absolute;
+            top: -40px;
+            width: 200px;
+            height: 50px;
+            background: #ff1493;
+            border-radius: 10px 10px 0 0;
+            transform-origin: bottom center;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .letter {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 180px;
+            padding: 20px;
+            background: #fff;
+            color: #333;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 1s ease-in-out;
+        }
+
+        /* Halaman 2 (Ucapan) */
+        .birthday-message {
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5); /* Background semi-transparan */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .birthday-message h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .birthday-message p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        /* Halaman 3 (Kolase Foto) */
+        .photo-collage {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .photo-collage img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .photo-collage img.visible {
+            opacity: 1;
+        }
+
+        /* Tombol */
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff1493;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ff69b4;
+        }
+
+        .button-container {
+            position: absolute;
+            bottom: 100px; /* Tidak terlalu ke bawah */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Halaman 1 (Kado) -->
+        <div class="page" id="page1">
+            <div class="gift-container">
+                <div class="lid"></div>
+                <div class="gift-box"></div>
+                <div class="letter" id="letter">
+                    <h1>Happy Birthday Pendek🤗❤</h1>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="btn" id="actionBtn" onclick="openGift()">Open</button>
+            </div>
+        </div>
+
+        <!-- Halaman 2 (Ucapan) -->
+        <div class="page hidden" id="page2">
+            <div class="birthday-message">
+                <h1>Selamat Ulang Tahun Cintakuu</h1>
+                <p>Hari ini kamu ulang tahunn... selamat bertambah usia, makin sabar dan kuat dan do'a terbaik untukmu.Semoga diumur yang sekarang semesta lebih berpihak yaa sama kamu, semoga bisa dapetin hal yang selama ini diperjuangin, semoga bahagia dan semoga itu selamanya.</p>
+            </div>
+            <div class="button-container">
+                <button class="btn" onclick="goToPage3()">Next</button>
+            </div>
+        </div>
+
+        <!-- Halaman 3 (Kolase Foto) -->
+        <div class="page hidden" id="page3">
+            <div class="photo-collage" id="photoCollage">
+                <!-- Ganti dengan foto-foto pacar Anda -->
+                <img src="IMG-20241116-WA0002(1).jpg" alt="Photo 1">
+                <img src="IMG-20241112-WA0006.jpg" alt="Photo 2">
+                <img src="IMG-20241007-WA0003.jpg" alt="Photo 3">
+                <img src="IMG-20241116-WA0003.jpg" alt="Photo 4">
+                <img src="IMG_20241117_092152.jpg" alt="Photo 5">
+            </div>
+            <!-- Tombol Open yang mengarahkan ke Instagram -->
+    <div class="button-container">
+        <a href="https://www.instagram.com/reel/DBz1QBDSEOy/?igsh=Zmdmd3J3M2k0OXcw" target="_blank" class="btn">Open</a>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <audio id="birthdaySong" src="Hari ini hari ulang tahunmu _ Mentahan LirikAesthetic 🍂 - ViviSi06 _ (youtube).mp3"></audio>
+
+    <script>
+        let isGiftOpened = false;
+
+        function openGift() {
+            const lid = document.querySelector('.lid');
+            const letter = document.getElementById('letter');
+            const audio = document.getElementById('birthdaySong');
+            const btn = document.getElementById('actionBtn');
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+
+            if (!isGiftOpened) {
+                // Animasi membuka kado
+                lid.style.transform = 'rotateX(-120deg)';
+                letter.style.transform = 'translateX(-50%) scale(1)';
+                audio.play();
+                btn.textContent = 'Next';
+                isGiftOpened = true;
+            } else {
+                // Efek transisi ke halaman kedua
+                page1.classList.add('hidden');
+                page2.classList.remove('hidden');
+            }
+        }
+
+        function goToPage3() {
+            const page2 = document.getElementById('page2');
+            const page3 = document.getElementById('page3');
+            const photos = document.querySelectorAll('.photo-collage img');
+
+            page2.classList.add('hidden');
+            page3.classList.remove('hidden');
+
+            // Kolase foto dengan delay
+            photos.forEach((photo, index) => {
+                setTimeout(() => {
+                    photo.classList.add('visible');
+                }, index * 1000);
+            });
+        }
+    </script>
+</body>
+</html>
